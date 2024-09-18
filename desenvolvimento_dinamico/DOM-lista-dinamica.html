@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Lista Dinâmica</title>
+  </head>
+  <body>
+    <ul id="lista"></ul>
+  </body>
+  <script>
+    const times = [
+      "Atlético Mineiro",
+      "Atlético Paranaense",
+      "Bahia",
+      "Botafogo",
+      "Corinthians",
+      "Coritiba",
+      "Cruzeiro",
+      "Cuiabá",
+      "Flamengo",
+      "Fluminense",
+      "Fortaleza",
+      "Goiás",
+      "Grêmio",
+      "Internacional",
+      "Palmeiras",
+      "Red Bull Bragantino",
+      "Santos",
+      "São Paulo",
+      "Vasco",
+      "América Mineiro",
+    ];
+    let lista = document.getElementById("lista");
+    for (time of times) {
+      let li = document.createElement("li");
+      li.textContent = time;
+      lista.appendChild(li);
+    }
+  </script>
+</html>
