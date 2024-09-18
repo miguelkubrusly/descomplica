@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Manipulando o DOM</title>
+  </head>
+
+  <body>
+    <form>
+      <label
+        >Digite a categoria do produto desejado, ou selecione uma do menu
+        abaixo</label
+      >
+      <input
+        type="search"
+        name="categoriaInput"
+        id="categoriaInput"
+        maxlength="20"
+      />
+      <button id="pesquisar">Pesquisar</button>
+      <br /><select id="categoriaSelect" name="categoriaSelect"></select>
+    </form>
+    <ul id="listaCategoria"></ul>
+  </body>
+  <script>
+    class Objeto {
+      static listaTodosObjetos = [];
+      constructor(nome, descricao, categoria, preco) {
+        this.nome = nome.trim();
+        this.descricao = descricao.trim();
+        this.categoria = categoria.trim();
+        this.preco = preco;
+        Objeto.listaTodosObjetos.push(this);
+      }
+      static forneceLista() {
+        return Objeto.listaTodosObjetos;
+      }
+    }
+
+    function filtrarPorCategoria(event) {
+      const listaTodosObjetos = Objeto.forneceLista();
+      let categoriaInput = document.getElementById("categoriaInput").value;
+      let listaCategoria = document.getElementById("listaCategoria");
+      listaCategoria.innerHTML = "";
+      if (categoriaInput === "") {
+        alert("Digite para pesquisar");
+      } else {
+        for (const objeto of listaTodosObjetos) {
+          if (objeto.categoria.toLowerCase() === categoriaInput.toLowerCase()) {
+            const novoElemento = document.createElement("li");
+            novoElemento.innerHTML = `<strong>${objeto.nome.toUpperCase()}
+              </strong><br>Descrição: ${objeto.descricao}
+              <br>Preço: R$ ${objeto.preco.toFixed(2).replace(".", ",")}`;
+            listaCategoria.appendChild(novoElemento);
+          }
+        }
+      }
+    }
+
+    function criarMenuSelect() {
+      const listaTodosObjetos = Objeto.forneceLista();
+      let categoriasTodosObjetos = [];
+      let select = document.getElementById("categoriaSelect");
+      if (listaTodosObjetos.length === 0) {
+        alert("Não existem produtos ainda");
+      } else {
+        for (const objeto of listaTodosObjetos) {
+          categoriasTodosObjetos.push(objeto.categoria);
+        }
+        const setCategorias = new Set(categoriasTodosObjetos);
+        for (const categoria of setCategorias) {
+          const novoElemento = document.createElement("option");
+          novoElemento.textContent = categoria;
+          select.appendChild(novoElemento);
+        }
+      }
+    }
+    let select = document.getElementById("categoriaSelect");
+    select.addEventListener("change", function pesquisarSelect() {
+      const selection = select.value.trim();
+      const inputCategoria = document.getElementById("categoriaInput");
+      inputCategoria.value = selection;
+      filtrarPorCategoria();
+      inputCategoria.value = "";
+    });
+
+    document.addEventListener("DOMContentLoaded", criarMenuSelect);
+    document
+      .getElementById("pesquisar")
+      .addEventListener("click", function (event) {
+        event.preventDefault();
+        filtrarPorCategoria();
+      });
+
+    //criação de objetos
+
+    const objeto1 = new Objeto(
+      (nome = "Samsung A71"),
+      (descricao = "Celular para games"),
+      (categoria = "Eletrônico"),
+      (preco = 1500)
+    );
+    const objeto2 = new Objeto(
+      (nome = "Sansung TAB G21"),
+      (descricao = "Tablet para estudo"),
+      (categoria = "Eletrônico"),
+      (preco = 2100)
+    );
+    const objeto3 = new Objeto(
+      (nome = "Fogão 4 bocas"),
+      (descricao = "Fogão para alimentação saudável"),
+      (categoria = "Eletrodoméstico"),
+      (preco = 1600)
+    );
+    const objeto4 = new Objeto(
+      (nome = "Geladeira e Freezer"),
+      (descricao = "Congela rápido"),
+      (categoria = " Eletrodoméstico "),
+      (preco = 4000)
+    );
+    const objeto5 = new Objeto(
+      (nome = " Air Fryer "),
+      (descricao = " Agiliza seu dia "),
+      (categoria = " Eletrodoméstico "),
+      (preco = 950)
+    );
+
+    const objeto6 = new Objeto(
+      (nome = "Livro - O Poder do Hábito"),
+      (descricao = "Livro sobre desenvolvimento pessoal"),
+      (categoria = "Literatura"),
+      (preco = 50)
+    );
+    const objeto7 = new Objeto(
+      (nome = "Tênis de Corrida"),
+      (descricao = "Ideal para prática esportiva"),
+      (categoria = "Esporte"),
+      (preco = 300)
+    );
+    const objeto8 = new Objeto(
+      (nome = "Violão Acústico"),
+      (descricao = "Instrumento musical para iniciantes"),
+      (categoria = "Instrumento Musical"),
+      (preco = 800)
+    );
+    const objeto9 = new Objeto(
+      (nome = "Cafeteira Expresso"),
+      (descricao = "Prepara café rapidamente"),
+      (categoria = "Cozinha"),
+      (preco = 350)
+    );
+    const objeto10 = new Objeto(
+      (nome = "Mochila de viagem"),
+      (descricao = "Mochila resistente para viagens longas"),
+      (categoria = "Acessórios"),
+      (preco = 200)
+    );
+  </script>
+</html>
