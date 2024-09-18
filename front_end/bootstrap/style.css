@@ -1,0 +1,21 @@
+body{
+  background-color: rgb(210, 236, 248);
+}
+.carousel-caption h5 {
+  color: white;
+  text-shadow: 2px 2px 2px black;
+  font-weight: 900;
+  font-size: 130px;
+}
+
+.carousel-caption p {
+  color: white;
+  font-weight: 600; 
+  font-size: larger;
+  background-color: rgba(0, 0, 0, 0.741);
+  display: inline-block;
+}
+
+.carousel-item img {
+  min-height: 500px; /* Ajuste esse valor conforme necessário */
+}
