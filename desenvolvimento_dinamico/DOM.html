@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>DOM - atividade prática</title>
+</head>
+
+<body>
+  <button onclick="calcular()">Calcular Média</button>
+  <script>
+    function calcular() {
+      let notas = [];
+      let nota = 0;
+      while (nota >= 0) {
+        nota = Number(
+          prompt(
+            "Digite a nota. Para terminar, digite um número negativo."
+          )
+        );
+        if (nota >= 0) {
+          notas.push(nota);
+        }
+      }
+      if (notas.length > 0) {
+        let resultado = notas.reduce(function (soma, item) {
+          return soma += item;
+        }, 0);
+        resultado /= notas.length;
+        alert(`A média das notas é ${resultado}`);
+      } else {
+        alert("Nenhuma nota foi inserida. Adeus.")
+      }
+
+    }    
+  </script>
+</body>
+
+</html>
