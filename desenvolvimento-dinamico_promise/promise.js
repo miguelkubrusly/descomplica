@@ -12,12 +12,15 @@ function processarItem(numero) {
 
 function processarArray(array) {
   const promises = array
-    .map((item) => processarItem(item).then((resultados) => resultados))
-    .catch((erro) => erro);
-    Promise.all(promises);
-    return promises;
+    .map((item) => processarItem(item))
+    
+    Promise.all(promises).then((resultados) => {
+      console.log(resultados);
+    }).catch((erro) => {
+      console.log(erro);
+    });
 }
 
 
-const arrayAleatorio = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
-console.log(processarArray(arrayAleatorio));
+const arrayAleatorio = [4, 6, 8, 10, 14, 16];
+processarArray(arrayAleatorio);
