@@ -1,0 +1,2 @@
+Unfinished project: make the shopping cart (from old_desenvolvimento-dinamico) work with JSON dynamically
+It already receives the JSON and parse them to the shopping carts'list, but old button and DOM logic is still buggy after adaptation.
