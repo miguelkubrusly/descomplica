@@ -1,0 +1,15 @@
+Prática
+
+Neste desafio, você deve criar um código em JavaScript para consumir uma API fake e exibir os dados retornados em uma página web. Utilizaremos a função ‘fetch’, que permite fazer requisições HTTP assíncronas, para buscar os dados da API.
+
+A API fake fornece informações em formato JSON, incluindo imagens e descrições. Seu objetivo é listar esses dados em um ‘<div>’ no HTML, exibindo as imagens e as descrições correspondentes.
+
+Ao carregar a página, o código JavaScript deve fazer uma requisição GET à URL da API fake. Se a requisição for bem-sucedida, os dados JSON devem ser convertidos em um objeto JavaScript utilizando o método ‘response.json()’. Em seguida, os dados devem ser percorridos e para cada item, um elemento ‘<img>’ deve ser criado. A propriedade ‘src’ do elemento ‘<img>’ deve ser definida com a URL da imagem correspondente e a propriedade ‘alt’ deve ser definida com a descrição correspondente.
+
+Os elementos ‘<img>’ devem ser adicionados como filhos de um ‘<div>’ com um determinado id, que será usado para exibir os dados na página web.
+
+Certifique-se de substituir a URL da API fake pela URL correta que você irá utilizar. Além disso, adapte o código para corresponder à estrutura dos dados retornados pela API fake que você está consumindo.
+
+Este desafio visa testar suas habilidades em consumir APIs, manipular dados JSON, criar elementos HTML dinamicamente e manipular o DOM de uma página web. Boa sorte!
+
+Boa sorte!
