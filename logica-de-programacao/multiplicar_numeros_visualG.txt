@@ -1,0 +1,22 @@
+Algoritmo "Produto de 10 Números"
+// 
+//  
+// Descrição   :Multiplica 10 números fornecidos pelo usuário
+// Autor    : Miguel Kubrusly
+// Data atual  : 22/10/2024
+Var
+// Seção de Declarações das variáveis 
+i, produto, numero: inteiro
+
+
+Inicio
+// Seção de Comandos, procedimento, funções, operadores, etc... 
+produto <- 1
+para i de 1 ate 10 faca
+      escreva("Multiplicação de 10 dígitos: digite o número ", i, "> ")
+      leia(numero)
+      produto <- produto * numero
+fimpara
+escreva("O produto total é de ", produto)
+
+Fimalgoritmo
